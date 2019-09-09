@@ -23,3 +23,6 @@ COPY bx.ini /usr/local/etc/php/conf.d/
 
 #создание виртуальных хостов
 COPY sites.conf /etc/apache2/sites-available/000-default.conf
+
+#включение mod rewrite-а Apache
+RUN ln -s /etc/apache2/mods-available/rewrite.load /etc/apache2/mods-enabled/rewrite.load
