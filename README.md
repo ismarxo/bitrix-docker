@@ -43,13 +43,10 @@ Docker окружение для Bitrix сайтов
         CustomLog /var/www/html/mysite.loc/apache_logs/access.log combined
     
         <Directory /var/www/html/mysite.loc/public_html>
+            #Включение работы символических ссылок
+            Options FollowSymLinks
             #Разрешение на перезапись всех директив при помощи .htaccess
             AllowOverride All
-        </Directory>
-        
-        <Directory /var/www/html/mysite.loc/public_html>
-            Options FollowSymLinks
-            AllowOverride None
         </Directory>
     </VirtualHost>
     ```
