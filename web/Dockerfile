@@ -19,6 +19,10 @@ RUN apt-get update && apt-get install -y \
 && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
 && docker-php-ext-install -j$(nproc) gd
 
+#копирование скрипта-заглушки для обработки функции php mail
+RUN mkdir /var/www/system_dir
+COPY mail.php /var/www/system_dir
+
 #добавление директив php.ini
 COPY bx.ini /usr/local/etc/php/conf.d/
 
