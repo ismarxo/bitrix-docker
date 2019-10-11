@@ -1,7 +1,18 @@
 #!/usr/bin/php
 <?php
-$doc_root = getcwd();
-$mail_path = str_replace('public_html', 'mail', $doc_root).'/';
+$mail_path = '';
+$pwd = $_SERVER['PWD'];
+$pwd = explode('/',$pwd);
+foreach ($pwd as $dir){
+    if ($dir) {
+        if ($mail_path !== '/var/www/html') {
+            $mail_path .= '/' . $dir;
+        } else {
+            $mail_path .= '/' . $dir.'/mail/';
+            break;
+        }
+    }
+}
 
 $input = file_get_contents('php://stdin');
 preg_match('|^To: (.*)|', $input, $matches);
