@@ -24,6 +24,9 @@ RUN apt-get update && apt-get install -y \
 RUN mkdir /var/www/system_dir
 COPY mail.php /var/www/system_dir
 
+# Install Composer
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
 #добавление директив php.ini
 COPY bx.ini /usr/local/etc/php/conf.d/
 
