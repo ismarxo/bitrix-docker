@@ -1,9 +1,9 @@
-FROM php:7.1-apache
+FROM php:7.3-apache
 
 RUN apt-get update && apt-get install -y \
     mc \
     cron \
-    zip \
+    libzip-dev \
     unzip \
     libxml2-dev \
     libjpeg62-turbo-dev \
